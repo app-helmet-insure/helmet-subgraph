@@ -1,0 +1,34 @@
+type Option @entity {
+  id: ID!
+  creator: Bytes!
+  collateral: Bytes!
+  underlying: Bytes!
+  strikePrice: BigInt!
+  expiry: BigInt!
+  long: Bytes!
+  short: Bytes!
+  asks: [OrderAsk!]! @derivedFrom(field: "option")
+}
+
+type OrderAsk @entity {
+  id: ID!
+  askID: BigInt!
+  binds: [OrderBid!]! @derivedFrom(field: "orderAsk")
+  seller: Bytes!
+  long: Bytes!
+  volume: BigInt!
+  settleToken: Bytes!
+  price: BigInt!
+  isCancel: Boolean!
+  option: Option!
+}
+
+type OrderBid @entity {
+  id: ID!
+  bidID: BigInt!
+  askID: BigInt!
+  buyer: Bytes!
+  volume: BigInt!
+  amount: BigInt!
+  orderAsk: OrderAsk!
+}  

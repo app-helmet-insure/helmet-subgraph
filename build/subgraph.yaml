@@ -1,0 +1,56 @@
+specVersion: 0.0.3
+description: Helmet.Insure
+repository: https://github.com/graphprotocol/example-subgraph
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: OptionFactory
+    network: bsc
+    source:
+      address: "0x021297e233550eDBa8e6487EB7c6696cFBB63b88"
+      abi: OptionFactory
+      startBlock: 3369000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - OptionFactory
+      abis:
+        - name: OptionFactory
+          file: OptionFactory/abis/OptionFactory.json
+      eventHandlers:
+        - event: OptionCreated(indexed address,indexed address,indexed
+            address,uint256,uint256,address,address,uint256)
+          handler: handleOptionCreated
+      file: OptionFactory/OptionFactory.wasm
+  - kind: ethereum/contract
+    name: OptionOrder
+    network: bsc
+    source:
+      address: "0x4C899b7C39dED9A06A5db387f0b0722a18B8d70D"
+      abi: OptionOrder
+      startBlock: 3369000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - OptionOrder
+      abis:
+        - name: OptionOrder
+          file: OptionOrder/abis/OptionOrder.json
+      eventHandlers:
+        - event: Sell(uint256,indexed address,indexed address,uint256,indexed address,uint256)
+          handler: handleSell
+        - event: Buy(uint256,uint256,indexed address,uint256,uint256)
+          handler: handleBuy
+        - event: Cancel(uint256,indexed address,indexed address,uint256)
+          handler: handleCancel
+        - event: Reprice(uint256,uint256,indexed address,indexed address,uint256,indexed
+            address,uint256,uint256)
+          handler: handleReprice
+        - event: Waive(uint256,indexed address,uint256)
+          handler: handleReprice
+      file: OptionOrder/OptionOrder.wasm
