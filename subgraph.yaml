@@ -1,6 +1,6 @@
 specVersion: 0.0.3
 description: Helmet.Insure
-repository: https://github.com/graphprotocol/example-subgraph
+repository: https://github.com/app-helmet-insure/helmet-subgraph
 schema:
   file: ./schema.graphql
 dataSources:
