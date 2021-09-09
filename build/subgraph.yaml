@@ -54,3 +54,133 @@ dataSources:
         - event: Waive(uint256,indexed address,uint256)
           handler: handleReprice
       file: OptionOrder/OptionOrder.wasm
+  - kind: ethereum/contract
+    name: Helmet
+    network: bsc
+    source:
+      address: "0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8"
+      abi: ERC20
+      startBlock: 3369558
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Token
+      abis:
+        - name: ERC20
+          file: Helmet/abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handlerTransfer
+      file: Helmet/Helmet.wasm
+  - kind: ethereum/contract
+    name: HELMET-BNB-MLP
+    network: bsc
+    source:
+      address: "0xD86577ea62FE1FD2cA0Be583c1A0ecf25F4FbF2B"
+      abi: StakingPool
+      startBlock: 6554170
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: StakingPool
+          file: HELMET-BNB-MLP/abis/StakingPool.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handlerStaked
+        - event: Withdrawn(indexed address,uint256)
+          handler: handlerWithdrawn
+      file: Helmet/Helmet.wasm
+  - kind: ethereum/contract
+    name: HELMET-BNB-PLP
+    network: bsc
+    source:
+      address: "0xA21B692B92Bbf0E34334f1548a0b51837CDDD0Bb"
+      abi: StakingPool
+      startBlock: 6858814
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: StakingPool
+          file: HELMET-BNB-PLP/abis/StakingPool.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handlerStaked
+        - event: Withdrawn(indexed address,uint256)
+          handler: handlerWithdrawn
+      file: Helmet/Helmet.wasm
+  - kind: ethereum/contract
+    name: HELMET-USDT-LPT
+    network: bsc
+    source:
+      address: "0x50a9C123536e69290a5dAb32ce514D0b9afcaDCc"
+      abi: StakingPool
+      startBlock: 10166190
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: StakingPool
+          file: HELMET-USDT-LPT/abis/StakingPool.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handlerStaked
+        - event: Withdrawn(indexed address,uint256)
+          handler: handlerWithdrawn
+      file: Helmet/Helmet.wasm
+  - kind: ethereum/contract
+    name: HELMET-BNB-LPT
+    network: bsc
+    source:
+      address: "0x1ECc83c300bCe18Ab7452aE2C4c78fc4BBf04c66"
+      abi: StakingPool
+      startBlock: 10496407
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: StakingPool
+          file: HELMET-BNB-LPT/abis/StakingPool.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handlerStaked
+        - event: Withdrawn(indexed address,uint256)
+          handler: handlerWithdrawn
+      file: Helmet/Helmet.wasm
+  - kind: ethereum/contract
+    name: HELMET-POOL
+    network: bsc
+    source:
+      address: "0x279a073c491c873df040b05cc846a3c47252b52c"
+      abi: StakingPool
+      startBlock: 4068936
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: StakingPool
+          file: HELMET-POOL/abis/StakingPool.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handlerStaked
+        - event: Withdrawn(indexed address,uint256)
+          handler: handlerWithdrawn
+      file: Helmet/Helmet.wasm

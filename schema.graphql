@@ -32,3 +32,65 @@ type OrderBid @entity {
   amount: BigInt!
   orderAsk: OrderAsk!
 }  
+
+
+
+type Token @entity {
+  id: ID!
+  holders: BigInt!
+  holders1000: BigInt!
+  holders2000: BigInt!
+  holders5000: BigInt!
+  holders10000: BigInt!
+  holders20000: BigInt!
+  holders50000: BigInt!
+}
+
+type TokenDay @entity {
+  id: ID!
+  date: Int!
+  holders: BigInt!
+  holders1000: BigInt!
+  holders2000: BigInt!
+  holders5000: BigInt!
+  holders10000: BigInt!
+  holders20000: BigInt!
+  holders50000: BigInt!
+}
+
+type Account @entity {
+  id: ID!
+  address: Bytes!
+  balance: BigInt!
+  stake: BigInt!
+  total: BigInt!
+  createdAt: BigInt!
+  pools: [AccountPool!]! @derivedFrom(field: "account")
+}
+
+type Pool @entity {
+  id: ID!
+  address: String!
+  total: BigInt!
+  amount: BigInt!
+  createdAt: BigInt!
+  accounts: [AccountPool!]! @derivedFrom(field: "pool")
+}
+
+type PoolDay @entity {
+  id: ID!
+  address: String!,
+  date: Int!
+  total: BigInt!
+  amount: BigInt!
+}
+
+type AccountPool @entity {
+  id: ID!
+  accountAddress: Bytes!
+  poolAddress: String!
+  amount: BigInt!
+  createdAt: BigInt!
+  pool: Pool!
+  account: Account!
+}
