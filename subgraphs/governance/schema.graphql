@@ -1,0 +1,6 @@
+type Vote @entity {
+  id: ID!
+  address: Bytes!
+  proposalID: BigInt!
+  amount: BigInt!
+}

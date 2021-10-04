@@ -1,0 +1,10 @@
+{
+  "name": "helmet-subgraph-governance",
+  "version": "0.1.0",
+  "scripts": {
+    "create": "graph create helmet/governance --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy helmet/governance --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+  }
+}

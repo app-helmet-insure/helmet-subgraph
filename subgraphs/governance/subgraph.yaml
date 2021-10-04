@@ -1,0 +1,26 @@
+specVersion: 0.0.3
+description: Helmet.Insure
+repository: https://github.com/app-helmet-insure/helmet-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: VOTE-POOL-1
+    network: bsc
+    source:
+      address: '0x4E18F9Ed49ad3d3fDdadE4d1464ED71133AA1EAC'
+      abi: VotePool
+      startBlock: 11416947
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+      abis:
+        - name: VotePool
+          file: ./abis/VotePool.json
+      eventHandlers:
+        - event: StakeAndVote(uint256,uint256)
+          handler: handlerStakeAndVote
+      file: ./src/Pools.ts

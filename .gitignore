@@ -62,3 +62,8 @@ typings/
 /yarn.lock
 /generated
 /build
+/subgraphs/governance/generated
+/subgraphs/governance/build
+/subgraphs/insure/generated
+/subgraphs/insure/build
+/.idea

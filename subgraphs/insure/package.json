@@ -1,0 +1,10 @@
+{
+  "name": "helmet-subgraph-insure",
+  "version": "0.1.0",
+  "scripts": {
+    "create": "graph create helmet/insure --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy helmet/insure --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
+  }
+}
